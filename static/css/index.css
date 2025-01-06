@@ -1,0 +1,70 @@
+/* Reset styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff; /* Light blue background */
+    color: #1a3b5d; /* Darker blue text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Container styling */
+.container {
+    max-width: 700px;
+    background-color: #ffffff; /* White background */
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Header styling */
+header {
+    border-bottom: 2px solid #1a3b5d; /* Dark blue border */
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+header a {
+    text-decoration: none;
+    color: #1a3b5d;
+    font-size: 1.8rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+header a:hover {
+    color: #143049; /* Slightly darker blue */
+}
+
+/* Description styling */
+h3 {
+    font-size: 1.2rem;
+    color: #4a4a4a;
+    margin-bottom: 2rem;
+}
+
+/* Button styling */
+.button a {
+    display: inline-block;
+    margin: 0.5rem;
+    padding: 0.5rem 0.5rem;
+    background-color: #1a3b5d; /* Dark blue */
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.button a:hover {
+    background-color: #143049; /* Slightly darker blue */
+}

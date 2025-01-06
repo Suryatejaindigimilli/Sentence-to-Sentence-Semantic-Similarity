@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Similarity Search</title>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/similarity.css') }}"> -->
+    <link rel="stylesheet" href="/static/css/similarity.css">
+    <script>
+        let sentenceCounter = 1;
+
+        function addSentenceInput() {
+            sentenceCounter += 1;
+            const container = document.getElementById('sentence-container');
+
+            // Create a wrapper div for each sentence input and remove button
+            const sentenceDiv = document.createElement('div');
+            sentenceDiv.setAttribute('id', `sentence-div-${sentenceCounter}`);
+            sentenceDiv.style.marginBottom = '10px';
+
+            // Create label for the sentence input
+            const sentenceLabel = document.createElement('label');
+            sentenceLabel.setAttribute('for', `sentence${sentenceCounter}`);
+            sentenceLabel.textContent = `Sentence : `;
+
+            // Create the sentence input field
+            const sentenceInput = document.createElement('input');
+            sentenceInput.setAttribute('type', 'text');
+            sentenceInput.setAttribute('id', `sentence${sentenceCounter}`);
+            sentenceInput.setAttribute('name', 'sentences');  // Use same name 'sentences' for all inputs
+            sentenceInput.setAttribute('required', true);
+
+            // Create the remove button
+            const removeButton = document.createElement('button');
+            removeButton.textContent = "Remove";
+            removeButton.setAttribute('type', 'button');
+            removeButton.style.marginLeft = '10px';
+            removeButton.onclick = function () {
+                container.removeChild(sentenceDiv);
+            };
+
+            // Append label, input, and remove button to the sentenceDiv
+            sentenceDiv.appendChild(sentenceLabel);
+            sentenceDiv.appendChild(sentenceInput);
+            sentenceDiv.appendChild(removeButton);
+
+            // Append sentenceDiv to container
+            container.appendChild(sentenceDiv);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="/">Back to Home</a>
+        </header>
+        
+        <h3>Similarity Search</h3>
+        <p>Enter multiple sentences to calculate pairwise similarity scores.</p>
+        
+        <form method="POST">
+            <div id="sentence-container">
+                <div id="sentence-div-1">
+                    <label for="sentence1">Sentence :</label>
+                    <input type="text" id="sentence1" name="sentences" required><br>
+                </div>
+            </div>
+            <button type="button" onclick="addSentenceInput()">+ Add Sentence</button>
+            <br><br>
+            <input type="submit" value="Calculate Similarity">
+        </form>
+
+        {% if scores %}
+            <h2>Similarity Scores:</h2>
+            <ul>
+                {% for score in scores %}
+                    <li>
+                        Pair: "{{ score.pair[0] }}" vs "{{ score.pair[1] }}"<br>
+                        Similarity Score: {{ score.score | round(2) }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</body>
+</html>

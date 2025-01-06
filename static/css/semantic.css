@@ -1,0 +1,168 @@
+/* Reset styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff; /* Light blue background */
+    color: #1a3b5d; /* Darker text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Container styling */
+.container {
+    max-width: 500px;
+    width: 100%;
+    background-color: #ffffff; /* White background */
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Heading styling */
+h2 {
+    color: #1a3b5d;
+    margin-bottom: 1.5rem;
+}
+
+/* Input styling */
+input[type="text"] {
+    width: 100%;
+    padding: 0.75rem;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+/* Header */
+header {
+    margin-bottom: 20px;
+}
+
+header a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #1a3b5d;
+    font-size: 18px;
+}
+
+header a:hover {
+    color: #1a3b5d;
+}
+
+/* Button styling */
+button {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: #fff9fc; /* Light background for add button */
+    color: #000000;
+    border: 1.5px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 10px auto;
+}
+
+button:hover {
+    background-color: #1a3b5d; /* Dark red on hover */
+    color: #ffffff;
+}
+
+/* Add button styling */
+.adds {
+    background-color: #fff9fc;
+    color: #000000;
+    border: 1.5px solid black;
+}
+
+.adds:hover {
+    background-color: #143049; /* Slightly darker color on hover */
+    color: #ffffff;
+}
+
+/* Calculate button styling */
+.calc button {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    background-color: #1a3b5d; /* Dark red */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.calc button:hover {
+    background-color: #1a3b5d; /* Slightly darker red on hover */
+}
+
+/* Back button styling */
+.back {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.back a {
+    color: #1a3b5d;
+    font-weight: bold;
+    margin-left: 0.25rem;
+    text-decoration: none;
+}
+
+.back a:hover {
+    text-decoration: underline;
+}
+
+/* Style for answer field wrapper */
+.answer-field {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* Style for answer field input */
+.answer-field input {
+    flex: 1;
+    padding: 0.75rem;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Remove icon styling */
+.remove-icon {
+    font-size: 1.25rem;
+    color: #1a3b5d;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+/* Remove icon hover effect */
+.remove-icon:hover {
+    color: #1a3b5d;
+}
+
+/* Prevent remove icon for the first answer field */
+.answer-field.fixed .remove-icon {
+    display: none;
+}
+
+/* Additional styling for dynamic inputs */
+#answerContainer input {
+    width: calc(100% - 30px); /* Full width minus icon spacing */
+    margin-top: 10px;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}

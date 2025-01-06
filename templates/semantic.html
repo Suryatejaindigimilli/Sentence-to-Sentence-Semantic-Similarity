@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semantic Search</title>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/semantic.css') }}"> -->
+    <link rel="stylesheet" href="/static/css/semantic.css">
+    <style>
+        /* Additional styling for answers */
+        .answer-box {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        .highlight {
+            background-color: #f0f8ff; /* Light blue background */
+            border: 2px solid #007acc; /* Darker blue border */
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .highlight h3 {
+            color: #007acc;
+        }
+        .answers {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="/">Back to Home</a>
+        </header>
+        <h2>Semantic Search</h2>
+        <form id="semanticForm" method="POST" action="/semantic">
+            <input type="text" name="question" placeholder="Enter the question" required>
+            <div id="contextContainer">
+                <div class="context-field">
+                    <input type="text" name="contexts" placeholder="Enter context" required>
+                </div>
+            </div>
+            <button type="button" class="adds" onclick="addContextField()">Add More Contexts</button>
+            <button type="submit">Calculate</button>
+        </form>
+        {% if question %}
+            <h2>Question: {{ question }}</h2>
+        {% endif %}
+
+        {% if answers %}
+            <h3>Answers:</h3>
+            <ul>
+                {% for answer in answers %}
+                    <li>
+                        <strong>Context:</strong> {{ answer.context }}<br>
+                        <strong>Answer:</strong> {{ answer.answer }}<br>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script>
+        function addContextField() {
+            const wrapper = document.createElement("div");
+            wrapper.classList.add("context-field");
+
+            const newInput = document.createElement("input");
+            newInput.type = "text";
+            newInput.name = "contexts";
+            newInput.placeholder = "Enter context";
+            newInput.required = true;
+
+            wrapper.appendChild(newInput);
+
+            document.getElementById("contextContainer").appendChild(wrapper);
+        }
+    </script>
+</body>
+</html>
